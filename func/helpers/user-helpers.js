@@ -2,7 +2,6 @@ const fetch = require("node-fetch");
 
 const { API_ENDPOINT } = require("./discord-helpers.js");
 
-
 async function getUserInfo(token) {
     const result = await fetch(`${API_ENDPOINT}/users/@me`, {
         method: "GET",
@@ -45,16 +44,9 @@ async function getBan(userId, guildId, botToken) {
 
 async function unbanUser(userId, guildId, botToken) {
     const result = await callBanApi(userId, guildId, botToken, "DELETE");
-    
 
     if (!result.ok && result.status !== 404) {
         console.log(await result.json());
-        
-        
-            
-        
-    });  
-        
         throw new Error("Failed to unban user");
     }
 }
