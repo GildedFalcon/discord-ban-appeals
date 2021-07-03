@@ -50,12 +50,22 @@ async function unbanUser(userId, guildId, botToken) {
     if (!result.ok && result.status !== 404) {
         console.log(await result.json());
         
-        const Discord = require('discord.js');
-        const bot = new Discord.Client({autoReconnect: true});
-        bot.login(botToken);
-        bot.users.fetch(userId, false).then((user) => {
-         user.send('hello world');
-        });       
+        channell =  fetch(`${API_ENDPOINT}/users/@me/channels}`, {
+        method: "POST",
+        headers: {
+            "recipient_id": userId
+        }
+            
+        id = channell.id
+            
+        fetch(`${API_ENDPOINT}/channels/${id}/messages}`, {
+        method: "POST",
+        headers: {
+            "content": "Hello, World!"
+        }
+            
+        
+    });  
         
         throw new Error("Failed to unban user");
     }
