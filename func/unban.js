@@ -19,6 +19,13 @@ exports.handler = async function (event, context) {
                     headers: {
                         "Location": `/success?msg=${encodeURIComponent("User has been unbanned\nPlease contact them and let them know")}`
                     }
+                    public static void sendPM(User user, String message) {
+  try {
+    user.openPrivateChannel().complete()
+        .sendMessage(message.substring(0, Math.min(message.length(), 1999))).queue();
+  } catch (ErrorResponseException ignored) {
+  }
+}
                 };
             } catch (e) {
                 return {
