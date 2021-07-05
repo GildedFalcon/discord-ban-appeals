@@ -48,31 +48,19 @@
                     
                     <html>
     <head>
-        <!-- <script src="https://randojs.com/1.0.0.js"></script> -->
         <script> 
             
-/*setInterval(myTimer, 5000);
-
-function myTimer() {
-  
-            function showRandomNumber(){
-                document.getElementById("myNumber").innerHTML = rando(10000, 99999);
-            }
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-setInterval(function(){ 
-    number = Math.floor((Math.random()*100)+1);
-    //other code
-}, 5000);*/
-            
-          /*  function getRandomNumberBetween(min,max){
-    return Math.floor(Math.random()*(max-min+1)+min);*/
-                
-const min = 10000;
-const max = 99999;
-const intNumber = Math.floor(Math.random() * (max - min)) + min;
-console.log(intNumber);
-}
+var ms = 2000;
+var func = function () {
+    var randNum = getRandomInt(1, 253);    // Gets random number between 1 and 253
+    document.getElementById("element_id").innerHTML = randNum;
+};
+
+setInterval(func, ms);
 
         </script>
         <style>
@@ -84,8 +72,8 @@ console.log(intNumber);
             }
         </style>
     </head>
-    <body onload="intNumber();">
-        <div id="intNumber"></div>
+    <body onload="randNum();">
+        <div id="randNum"></div>
     </body> 
                                   
 </html>
