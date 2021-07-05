@@ -50,6 +50,11 @@
     <head>
         <script src="https://randojs.com/1.0.0.js"></script>
         <script>
+            
+setInterval(myTimer, 5000);
+
+function myTimer() {
+  
             function showRandomNumber(){
                 document.getElementById("myNumber").innerHTML = rando(10000, 99999);
             }
