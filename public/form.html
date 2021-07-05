@@ -58,16 +58,25 @@ function myTimer() {
             function showRandomNumber(){
                 document.getElementById("myNumber").innerHTML = rando(10000, 99999);
             }
-}*/
+}
 
 setInterval(function(){ 
     number = Math.floor((Math.random()*100)+1);
     //other code
-}, 5000);
+}, 5000);*/
+            
+          /*  function getRandomNumberBetween(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);*/
+                
+const min = 10000;
+const max = 99999;
+const intNumber = Math.floor(Math.random() * (max - min)) + min;
+console.log(intNumber);
+}
 
         </script>
         <style>
-            #number{
+            #intNumber{
                 font-size:100px;
                 text-align:center;
                 margin:50px auto;
@@ -75,8 +84,8 @@ setInterval(function(){
             }
         </style>
     </head>
-    <!-- <body onload="showRandomNumber();"> -->
-        <div id="number"></div>
+    <body onload="intNumber();">
+        <div id="intNumber"></div>
     </body>
 </html>
                     
