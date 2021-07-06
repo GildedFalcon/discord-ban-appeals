@@ -46,10 +46,38 @@
                 </div>
                 <div>
                     
-                   <!-- <html>
+                    <html>
     <head>
         <script> 
             
+            function resetAtMidnight() {
+    var now = new Date();
+    var night = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1, // the next day, ...
+        0, 0, 0 // ...at 00:00:00 hours
+    );
+    var msToMidnight = night.getTime() - now.getTime();
+
+    setTimeout(function() {
+        reset();              //      <-- This is the function being called at midnight.
+        resetAtMidnight();    //      Then, reset again next midnight.
+    }, msToMidnight);
+}
+            
+            
+            var msTillMidnight = night.getTime() - now.getTime();
+var myCountdown1 = new Countdown({
+    time: msTillMidnight / 1000, // divide by 1000 to get from ms to sec, if this function needs seconds here.
+    width:200, 
+    height:55,  
+    rangeHi:"hour",
+    style:"flip"    // <- no comma on last item!
+});
+            
+    if(msTillMidnight==0) {      
+        
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -60,7 +88,9 @@ var func = function () {
     document.getElementById("element_id").innerHTML = randNum;
 };
 
-setInterval(func, ms);
+    }
+        
+<!-- setInterval(func, ms); -->
 
        
             
@@ -82,7 +112,7 @@ setInterval(func, ms);
         
     </body> 
                                   
-</html> -->
+</html> 
                     
    <label for="discordCode">Enter Discord Code: </label>
     <input type="text" id="discordCode" name="code" required size="5"
