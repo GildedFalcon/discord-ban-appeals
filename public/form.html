@@ -50,19 +50,56 @@
     <head>
         <script> 
             
-            Date date=new Date();
-Timer timer = new Timer();
+           
+           public class DemoScheduler {
 
-timer.schedule(new TimerTask(){
-     public void run(){
-    
-    function getRandomInt(min, max) {
+    public static void main(String[] args) {
+
+        // Create a calendar instance
+        Calendar calendar = Calendar.getInstance();
+
+        // Set time of execution. Here, we have to run every day 4:20 PM; so,
+        // setting all parameters.
+        calendar.set(Calendar.HOUR, 8);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.AM_PM, Calendar.AM);
+
+        Long currentTime = new Date().getTime();
+
+        // Check if current time is greater than our calendar's time. If So,
+        // then change date to one day plus. As the time already pass for
+        // execution.
+        if (calendar.getTime().getTime() < currentTime) {
+            calendar.add(Calendar.DATE, 1);
+        }
+
+        // Calendar is scheduled for future; so, it's time is higher than
+        // current time.
+        long startScheduler = calendar.getTime().getTime() - currentTime;
+
+        // Setting stop scheduler at 4:21 PM. Over here, we are using current
+        // calendar's object; so, date and AM_PM is not needed to set
+        calendar.set(Calendar.HOUR, 5);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
+
+        // Calculation stop scheduler
+        long stopScheduler = calendar.getTime().getTime() - currentTime;
+
+        // Executor is Runnable. The code which you want to run periodically.
+        Runnable task = new Runnable() {
+
+            @Override
+            public void run() {
+
+                function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
              
             
-// var ms = 5000;
+var ms = 5000;
 var func = function () {
     var randNum = getRandomInt(10000, 99999);    // Gets random number
     document.getElementById("element_id").innerHTML = randNum;
@@ -70,12 +107,16 @@ var func = function () {
 
     
         
- // setInterval(func, ms);
-    
-    
-     }
-},date, 1);//24*60*60*1000 add 24 hours delay between job executions.
-            
+ setInterval(func, ms); 
+            }
+        };
+
+        // Get an instance of scheduler
+        final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        // execute scheduler at fixed time.
+        scheduler.scheduleAtFixedRate(task, startScheduler, stopScheduler, MILLISECONDS);
+    }
+}
         
         
 /* function getRandomInt(min, max) {
