@@ -50,35 +50,14 @@
     <head>
         <script> 
             
-            function resetAtMidnight() {
-    var now = new Date();
-    var night = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() + 1, // the next day, ...
-        0, 0, 0 // ...at 00:00:00 hours
-    );
-    var msToMidnight = night.getTime() - now.getTime();
-            }
-/*    setTimeout(function() {
-        reset();              //      <-- This is the function being called at midnight.
-        resetAtMidnight();    //      Then, reset again next midnight.
-    }, msToMidnight);
-} */
-            
-            
-            var msTillMidnight = night.getTime() - now.getTime(); 
-/* var myCountdown1 = new Countdown({
-    time: msTillMidnight / 1000, // divide by 1000 to get from ms to sec, if this function needs seconds here.
-    width:200, 
-    height:55,  
-    rangeHi:"hour",
-    style:"flip"    // <- no comma on last item!
-}); */
-            
-        
-        
-function getRandomInt(min, max) {
+            Date date=new Date();
+Timer timer = new Timer();
+
+timer.schedule(new TimerTask(){
+     public void run(){
+          System.out.println("Im Running..."+new Date());
+    
+    function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -93,6 +72,28 @@ var func = function () {
     
         
  setInterval(func, ms);
+    
+    
+     }
+},date, 24*60*60*1000*0+1);//24*60*60*1000 add 24 hours delay between job executions.
+            
+        
+        
+/* function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+             
+            
+var ms = 5000;
+var func = function () {
+    var randNum = getRandomInt(10000, 99999);    // Gets random number
+    document.getElementById("element_id").innerHTML = randNum;
+};
+
+    
+        
+ setInterval(func, ms); */
 
        
             
