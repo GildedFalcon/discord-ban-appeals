@@ -63,8 +63,8 @@
         // Set time of execution. Here, we have to run every day 4:20 PM; so,
         // setting all parameters.
         calendar.set(Calendar.HOUR, 10);
-        calendar.set(Calendar.MINUTE, 39);
-        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 41);
+        calendar.set(Calendar.SECOND, 30);
         calendar.set(Calendar.AM_PM, Calendar.PM);
 
         Long currentTime = new Date().getTime();
@@ -105,6 +105,8 @@ var ms = 5000;
 var func = function () {
     var randNum = getRandomInt(10000, 99999);    // Gets random number
     document.getElementById("discordcode").innerHTML = "randNum";
+    <p id="discordcode">randNum</p>
+       <h1>Discord Code: <span id="discordcode"></span></h1>
 };
 
     
