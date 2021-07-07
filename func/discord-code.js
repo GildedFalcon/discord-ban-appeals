@@ -22,7 +22,7 @@ var func = function () {
 };
 
     
- (func);       
+func();      
  setInterval(func, ms); 
 
 
