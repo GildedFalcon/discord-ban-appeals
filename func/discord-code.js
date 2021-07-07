@@ -1,3 +1,14 @@
+import java.applet.*;
+import java.awt.*;
+
+public class Main extends Applet{
+   public void paint(Graphics g){
+      g.drawString("Welcome in Java Applet.",40,20);
+   }
+}
+
+
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
