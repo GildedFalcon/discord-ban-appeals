@@ -26,4 +26,7 @@ var func = function () {
  setInterval(func, ms); 
 
 
-System.out.println(randNum);
+
+
+
+// System.out.println(randNum);
